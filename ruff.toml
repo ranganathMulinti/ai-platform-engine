@@ -1,6 +1,0 @@
-# Ruff configuration file
-
-line-length = 88
-target-version = ["py312"]
-select = ["E", "F", "W", "I001"]
-ignore = []

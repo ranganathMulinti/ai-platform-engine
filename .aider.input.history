@@ -151,3 +151,138 @@
 
 # 2026-06-23 12:53:27.487242
 +yes
+
+# 2026-06-23 13:08:58.613814
++You are implementing the backend skeleton for an enterprise AI platform.
++
++Create the following structure:
++
++backend/
++    pyproject.toml
++    README.md
++    .env.example
++
++backend/src/
++    __init__.py
++    core/__init__.py
++    platform/__init__.py
++    ai/__init__.py
++    knowledge/__init__.py
++    agents/__init__.py
++    workflow/__init__.py
++    api/__init__.py
++    features/__init__.py
++    shared/__init__.py
++
++backend/tests/
++    unit/
++    integration/
++    conftest.py
++
++Requirements:
++
++- Python 3.12
++- src layout
++- Modern pyproject.toml
++- uv package management
++- README explaining backend architecture
++- .env.example with placeholder values
++- Do not implement business logic.
++- Do not commit.
+
+# 2026-06-23 13:37:37.340038
++yes
+
+# 2026-06-23 13:52:47.837612
++/bye
+
+# 2026-06-23 13:53:02.795622
++exit
+
+# 2026-06-23 14:43:51.913627
++Fix all Ruff violations in backend/src/core/config and backend/tests.
++
++Requirements:
++
++- Do not change the architecture.
++- Do not change functionality.
++- Keep all public APIs intact.
++- Fix all I001 import ordering issues.
++- Remove all unused imports (F401).
++- Remove wildcard imports (F403). Replace them with explicit imports.
++- Fix B904 by using "raise ... from e".
++- Update Python 3.12 type aliases to use the new "type" syntax instead of TypeAlias.
++- Ensure __init__.py exports symbols explicitly using __all__.
++- Run Ruff-compatible import ordering.
++- Do not suppress warnings with noqa unless absolutely necessary.
++- Do not commit changes.
+
+# 2026-06-23 14:51:27.160534
++yes
+
+# 2026-06-23 15:13:43.471734
++Refactor backend/src/core/config to remove unnecessary abstractions.
++
++Delete:
++
++- interfaces.py
++- loader.py
++- types.py
++- validators.py
++
++Move validation into settings.py using Pydantic.
++
++Keep only:
++
++- settings.py
++- environment.py
++- exceptions.py
++- __init__.py
++- README.md
++- tests/
++
++Update tests accordingly.
++
++Fix all Ruff issues.
++
++Do not change functionality.
++
++Do not commit.
+
+# 2026-06-23 15:58:10.685975
++Implement the configuration package for an enterprise AI platform.
++
++Package:
++backend/src/core/config
++
++Create only these files:
++
++- __init__.py
++- environment.py
++- exceptions.py
++- settings.py
++- README.md
++- tests/test_settings.py
++- tests/test_exceptions.py
++
++Requirements:
++
++1. Python 3.12
++2. Pydantic v2
++3. Use pydantic-settings
++4. Do NOT use BaseSettings from pydantic
++5. Do NOT create loader.py
++6. Do NOT create interfaces.py
++7. Do NOT create validators.py
++8. Do NOT create types.py
++9. Do NOT use wildcard imports
++10. Use SettingsConfigDict
++11. Support .env loading
++12. Add comprehensive docstrings
++13. Add type hints everywhere
++14. Tests must pass
++15. Ruff and MyPy clean
++16. Do not commit.
+
+# 2026-06-23 16:08:21.031619
++yes
