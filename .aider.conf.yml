@@ -1,0 +1,18 @@
+model: ollama_chat/qwen2.5-coder:14b
+
+# Git
+git: true
+auto-commits: false
+dirty-commits: false
+
+# UI
+pretty: true
+stream: true
+dark-mode: true
+
+# Quality
+auto-lint: true
+auto-test: false
+
+# Don't auto-commit. We review first.
+commit: false
