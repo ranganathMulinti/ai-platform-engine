@@ -109,3 +109,45 @@
 
 # 2026-06-23 12:35:31.767000
 +yes
+
+# 2026-06-23 12:47:26.808457
++You are implementing the Configuration Framework for an enterprise AI platform.
++
++Your task is to implement the package:
++
++backend/src/core/config
++
++Create:
++
++- __init__.py
++- README.md
++- settings.py
++- environment.py
++- constants.py
++- validators.py
++- loader.py
++- interfaces.py
++- types.py
++- exceptions.py
++- tests/
++
++Requirements:
++
++- Use Python 3.12
++- Use Pydantic Settings v2
++- Follow Clean Architecture
++- Every module must have comprehensive docstrings
++- Every public class and function must have type hints
++- The package must not depend on FastAPI, SQLAlchemy, Redis, or any AI libraries
++- Configuration loading must be centralized in loader.py
++- Validation logic belongs in validators.py
++- Environment definitions belong in environment.py
++- Include unit tests
++- Include a package README explaining the design
++
++Do not modify any other package.
++
++Do not commit changes.
+
+# 2026-06-23 12:53:27.487242
++yes

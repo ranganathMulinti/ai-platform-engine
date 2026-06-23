@@ -1,0 +1,8 @@
+
+## Testing
+
+Unit tests for each module are located in the `tests/` directory. Run tests using `pytest`.
+
+## License
+
+This package is licensed under the MIT License.
