@@ -1,8 +1,8 @@
+from typing import Literal
+
 from pydantic_settings import BaseSettings
 
 from .environment import Environment
-from typing import Literal
-
 
 
 class Settings(BaseSettings):

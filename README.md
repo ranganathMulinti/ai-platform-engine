@@ -1,21 +1,23 @@
-# Logging Framework for AI Platform Engine
+# Exception Framework for AI Platform Engine
 
 ## Purpose
 
-This package provides a centralized logging system for the AI Platform Engine. It uses Python's standard logging module to ensure production-ready logging with minimal dependencies.
+This package provides a centralized exception handling system for the AI Platform Engine. It defines a hierarchy of exceptions to ensure consistent error handling across the platform.
 
-## Responsibilities
+## Exception Hierarchy
 
-- Configure logging based on environment settings
-- Provide type-safe access to logging functionality
-- Handle environment-specific logging configurations
-
-## Public API
-
-- `get_logger(name: str) -> logging.Logger`: Get a logger instance
-- `configure_logging()`: Configure the logging system
-- `JsonFormatter`: A JSON-formatted logging formatter
-- `LoggingConfigurationError`: Custom exception for logging configuration errors
+- `PlatformError`: Base class for all platform exceptions
+- `APIError`: Base class for API-related exceptions
+  - `ResourceNotFoundError`: Resource not found
+  - `UnauthorizedError`: Authentication required but not provided
+  - `ForbiddenError`: User lacks permission
+- `DatabaseError`: Base class for database-related exceptions
+  - `DatabaseConnectionError`: Database connection failure
+  - `TransactionError`: Database transaction failure
+- `ValidationError`: Validation failure
+- `AIProviderError`: Base class for AI provider exceptions
+  - `EmbeddingError`: Embedding generation failure
+  - `LLMGenerationError`: LLM generation failure
 
 ## Usage Examples
 

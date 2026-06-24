@@ -1,0 +1,6 @@
+
+## Best Practices
+
+- Always catch specific exceptions before general ones.
+- Use the exception classes to provide clear error messages.
+- Avoid catching `Exception` as a general catch-all.
