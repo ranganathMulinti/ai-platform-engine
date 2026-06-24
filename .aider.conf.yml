@@ -1,4 +1,4 @@
-model: ollama_chat/qwen2.5-coder:14b
+model: ollama_chat/qwen3:4b
 
 # Git
 git: true

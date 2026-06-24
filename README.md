@@ -1,14 +1,20 @@
 # Configuration Framework for AI Platform Engine
 
-## Overview
+## Purpose
 
 This package provides a centralized configuration management system for the AI Platform Engine. It uses Pydantic to ensure type safety and validation.
 
-## Modules
+## Responsibilities
 
-- **settings.py**: Defines the main configuration settings using Pydantic.
-- **environment.py**: Contains environment-specific configurations.
-- **exceptions.py**: Defines custom exceptions related to configuration management.
+- Load and validate configuration settings from environment variables and a `.env` file.
+- Provide a type-safe way to access configuration values.
+- Handle environment-specific configurations.
+
+## Public API
+
+- `Settings`: The main configuration class.
+- `Environment`: An enum for environment types.
+- `ConfigurationError`: Custom exception for configuration-related errors.
 
 ## Usage
 
@@ -23,5 +29,7 @@ This package provides a centralized configuration management system for the AI P
 3. **Access Settings**:
    - Import and use the `Settings` class to access configuration values throughout your application.
 
-## Example
+## Future Roadmap
 
+- Add support for more environment-specific configurations.
+- Implement configuration validation for complex settings.
