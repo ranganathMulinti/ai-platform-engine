@@ -447,3 +447,186 @@
 +- Do not change the public API.
 +- Do not modify the tests.
 +- Do not commit.
+
+# 2026-06-24 10:39:32.233336
++STORY-004: Implement the Logging capability for AI Platform Engine.
++
++Project context
++
++- Enterprise AI Platform
++- Python 3.12
++- Standard logging module only
++- Production-ready implementation
++- Keep the implementation simple (YAGNI)
++- No external logging libraries
++
++Create ONLY:
++
++backend/src/core/logging/
++    __init__.py
++    config.py
++    formatter.py
++    logger.py
++    exceptions.py
++    README.md
++
++backend/tests/unit/core/logging/
++    test_logger.py
++    test_formatter.py
++    test_config.py
++
++Requirements
++
++1. logger.py
++
++Implement:
++
++get_logger(name: str) -> logging.Logger
++
++Requirements:
++
++- Return the same logger instance for the same logger name.
++- Never create duplicate handlers.
++- Thread-safe implementation.
++- No global mutable state except Python's logging registry.
++- Google-style docstrings.
++- Full type hints.
++
++----------------------------------------------------
++
++2. formatter.py
++
++Implement:
++
++class JsonFormatter(logging.Formatter)
++
++Output JSON with at least:
++
++{
++    "timestamp": "...",
++    "level": "...",
++    "logger": "...",
++    "message": "..."
++}
++
++Requirements:
++
++- timestamp must use UTC ISO-8601 format.
++- Serialize using json.dumps().
++- Gracefully handle missing fields.
++- No request ID yet.
++- No trace ID yet.
++
++----------------------------------------------------
++
++3. config.py
++
++Implement:
++
++configure_logging()
++
++Requirements:
++
++- Read log level from Settings.
++- Configure console logging.
++- Development environment:
++    Human-readable formatter.
++
++- Production environment:
++    JsonFormatter.
++
++- Calling configure_logging() multiple times must never duplicate handlers.
++
++----------------------------------------------------
++
++4. exceptions.py
++
++Create:
++
++class LoggingConfigurationError(Exception):
++    """Raised when logging configuration fails."""
++
++----------------------------------------------------
++
++5. __init__.py
++
++Export ONLY
++
++- get_logger
++- configure_logging
++- JsonFormatter
++- LoggingConfigurationError
++
++----------------------------------------------------
++
++6. README.md
++
++Document
++
++- Purpose
++- Responsibilities
++- Public API
++- Usage examples
++- Future roadmap
++
++----------------------------------------------------
++
++Tests
++
++Write tests for
++
++- Logger singleton behavior
++- No duplicate handlers
++- JsonFormatter output
++- configure_logging()
++
++----------------------------------------------------
++
++Constraints
++
++- Python 3.12
++- Google docstrings
++- Full typing
++- Ruff clean
++- MyPy clean
++- Pytest passing
++- No TODO comments
++- No commented code
++- No dead code
++- No FastAPI integration
++- No middleware
++- No request IDs
++- No structlog
++- No loguru
++- Do not commit.
+
+# 2026-06-24 10:48:34.698796
++yes
+
+# 2026-06-24 10:55:23.554117
++Review logging/config.py.
++
++Fix the following:
++
++1. Replace
++
++from core.logging import JsonFormatter
++
++with
++
++from .formatter import JsonFormatter
++
++2. Add the return type:
++
++def configure_logging() -> None
++
++3. Make configure_logging() idempotent.
++Calling it multiple times must never create duplicate handlers.
++
++4. Ensure Settings defines log_level.
++If missing, add:
++
++log_level: str = "INFO"
++
++Do not change anything else.
++Do not commit.

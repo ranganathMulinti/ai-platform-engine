@@ -1,0 +1,6 @@
+
+## Future Roadmap
+
+- Add support for file logging
+- Implement log rotation
+- Add structured logging for different environments

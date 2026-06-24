@@ -112,3 +112,7 @@ ENV/
 # Visual Studio Code
 .vscode/
 .aider*
+
+
+.aider*
+.aider.tags.cache.v4/

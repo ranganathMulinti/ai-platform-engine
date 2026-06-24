@@ -1,6 +1,8 @@
 from pydantic_settings import BaseSettings
 
 from .environment import Environment
+from typing import Literal
+
 
 
 class Settings(BaseSettings):
@@ -13,6 +15,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./test.db"
     redis_url: str = "redis://localhost:6379"
     secret_key: str = "secret_key"
+    log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
 
     class SettingsConfigDict:
         env_file = ".env"
