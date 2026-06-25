@@ -1,0 +1,5 @@
+"""
+Retrieval constants.
+"""
+
+DEFAULT_TOP_K = 5

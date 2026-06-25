@@ -1,0 +1,9 @@
+"""
+LLM constants.
+"""
+
+DEFAULT_TEMPERATURE = 0.2
+
+DEFAULT_MAX_TOKENS = 2048
+
+DEFAULT_MODEL = "gemini-2.5-flash"

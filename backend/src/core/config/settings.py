@@ -53,6 +53,10 @@ class Settings(BaseSettings):
 
     redis_url: str = "redis://localhost:6379"
 
+    gemini_api_key: str = ""
+
+    default_llm_model: str = "gemini-2.5-flash"
+
     # ==========================================================
     # Authentication
     # ==========================================================

@@ -1,0 +1,9 @@
+"""
+Ingestion constants.
+"""
+
+DEFAULT_CHUNK_SIZE = 1000
+
+DEFAULT_CHUNK_OVERLAP = 200
+
+DEFAULT_ENCODING = "utf-8"

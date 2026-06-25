@@ -1,0 +1,7 @@
+"""
+Tool constants.
+"""
+
+DEFAULT_TIMEOUT_SECONDS = 30
+
+MAX_TOOL_NAME_LENGTH = 100

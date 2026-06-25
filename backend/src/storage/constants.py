@@ -1,0 +1,9 @@
+"""
+Storage constants.
+"""
+
+DEFAULT_DOCUMENT_DIRECTORY = "documents"
+
+SHA256_CHUNK_SIZE = 1024 * 1024
+
+DEFAULT_FILE_PERMISSIONS = 0o644

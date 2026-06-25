@@ -7,6 +7,7 @@ from core.health.router import router as health_router
 from core.lifespan import lifespan
 from core.middleware.logging import LoggingMiddleware
 from core.middleware.request_id import RequestIdMiddleware
+from documents.router import router as document_router
 from fastapi import FastAPI
 
 
@@ -26,6 +27,7 @@ def create_app() -> FastAPI:
     register_exception_handlers(app)
     app.include_router(health_router)
     app.include_router(auth_router)
+    app.include_router(document_router)
     # Infrastructure middleware
     app.add_middleware(RequestIdMiddleware)
     app.add_middleware(LoggingMiddleware)
