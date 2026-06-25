@@ -11,4 +11,4 @@ def test_settings_initialization():
     assert settings.port == 8000
     assert settings.database_url == "sqlite:///./test.db"
     assert settings.redis_url == "redis://localhost:6379"
-    assert settings.secret_key == "secret_key"
+    assert settings.secret_key

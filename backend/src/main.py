@@ -1,4 +1,8 @@
+from auth.router import router as auth_router
 from core.config.settings import Settings
+from core.exceptions.handlers import (
+    register_exception_handlers,
+)
 from core.health.router import router as health_router
 from core.lifespan import lifespan
 from core.middleware.logging import LoggingMiddleware
@@ -19,7 +23,9 @@ def create_app() -> FastAPI:
         version=settings.app_version,
         lifespan=lifespan,
     )
+    register_exception_handlers(app)
     app.include_router(health_router)
+    app.include_router(auth_router)
     # Infrastructure middleware
     app.add_middleware(RequestIdMiddleware)
     app.add_middleware(LoggingMiddleware)

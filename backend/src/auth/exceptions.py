@@ -1,15 +1,15 @@
+"""
+Authentication exceptions.
+"""
+
 from core.exceptions.auth import (
-    AuthenticationException,
     InactiveUserException,
     InvalidCredentialsException,
     InvalidTokenException,
     UserAlreadyExistsException,
 )
-from core.exceptions.base import AppException
 
 __all__ = [
-    "AppException",
-    "AuthenticationException",
     "InactiveUserException",
     "InvalidCredentialsException",
     "InvalidTokenException",

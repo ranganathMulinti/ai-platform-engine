@@ -1,3 +1,4 @@
+from types import TracebackType
 from unittest.mock import MagicMock
 
 from core.unit_of_work.base import UnitOfWork
@@ -5,10 +6,21 @@ from sqlalchemy.orm import Session
 
 
 class ConcreteUnitOfWork(UnitOfWork):
-    """Concrete implementation used for unit testing."""
-
-    def __init__(self, session: Session) -> None:
+    def __init__(self, session: Session):
         self.session = session
+
+    def __enter__(self):
+        return self
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
+        if exc_type:
+            self.rollback()
+        self.close()
 
     def commit(self) -> None:
         self.session.commit()
@@ -21,7 +33,6 @@ class ConcreteUnitOfWork(UnitOfWork):
 
 
 def test_commit() -> None:
-    """Test commit delegates to SQLAlchemy session."""
     session = MagicMock(spec=Session)
 
     uow = ConcreteUnitOfWork(session)
@@ -32,7 +43,6 @@ def test_commit() -> None:
 
 
 def test_rollback() -> None:
-    """Test rollback delegates to SQLAlchemy session."""
     session = MagicMock(spec=Session)
 
     uow = ConcreteUnitOfWork(session)
@@ -43,7 +53,6 @@ def test_rollback() -> None:
 
 
 def test_close() -> None:
-    """Test close delegates to SQLAlchemy session."""
     session = MagicMock(spec=Session)
 
     uow = ConcreteUnitOfWork(session)

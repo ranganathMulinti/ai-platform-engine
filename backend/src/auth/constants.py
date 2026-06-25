@@ -1,0 +1,11 @@
+"""
+Authentication module constants.
+"""
+
+EMAIL_MAX_LENGTH: int = 255
+PASSWORD_HASH_MAX_LENGTH: int = 255
+FULL_NAME_MAX_LENGTH: int = 255
+
+ACCESS_TOKEN_TYPE: str = "Bearer"
+
+DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 30

@@ -1,31 +1,32 @@
+"""
+Abstract Unit of Work.
+"""
+
 from abc import ABC, abstractmethod
+from types import TracebackType
 
 
-class UnitOfWork[T](ABC):
+class UnitOfWork(ABC):
     """
-    Abstract base class for a unit of work.
-
-    Attributes:
-        session (Session): The database session.
+    Abstract Unit of Work.
     """
 
     @abstractmethod
-    def commit(self) -> None:
-        """
-        Commit the current transaction.
-        """
-        pass
+    def __enter__(self) -> "UnitOfWork": ...
 
     @abstractmethod
-    def rollback(self) -> None:
-        """
-        Rollback the current transaction.
-        """
-        pass
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        _exc_value: BaseException | None,
+        _traceback: TracebackType | None,
+    ) -> None: ...
 
     @abstractmethod
-    def close(self) -> None:
-        """
-        Close the session.
-        """
-        pass
+    def commit(self) -> None: ...
+
+    @abstractmethod
+    def rollback(self) -> None: ...
+
+    @abstractmethod
+    def close(self) -> None: ...

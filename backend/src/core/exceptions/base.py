@@ -1,12 +1,22 @@
-class PlatformError(Exception):
-    """Base class for all platform exceptions.
+"""
+Base application exceptions.
+"""
 
-    This class serves as the foundation for all exceptions in the AI Platform Engine.
+
+class AppException(Exception):
+    """
+    Base class for all application exceptions.
     """
 
-    def __init__(self, message: str):
-        super().__init__()
-        self.message = message
+    status_code: int = 500
 
-    def __str__(self) -> str:
-        return self.message
+    detail: str = "Application Error"
+
+    def __init__(
+        self,
+        detail: str | None = None,
+    ) -> None:
+        super().__init__(detail or self.detail)
+
+        if detail:
+            self.detail = detail

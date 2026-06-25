@@ -18,6 +18,10 @@ dependencies = [
     "uvicorn[standard]>=0.35",
     "pydantic>=2.11",
     "pydantic-settings>=2.10",
+    #Authentication
+    "passlib[bcrypt]>=1.7",
+    "email-validator>=2.2",
+    "pyjwt>=2.13.0",
 ]
 
 [dependency-groups]
@@ -32,6 +36,7 @@ dev = [
     "sqlalchemy>=2.0.41",
     "alembic>=1.16",
     "psycopg[binary]>=3.2",
+    "types-passlib>=1.7.7.20260211",
 ]
 
 [tool.ruff]
